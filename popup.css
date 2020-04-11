@@ -1,0 +1,25 @@
+body {
+  color: white;
+  width: 400px;
+  height: 400px; }
+
+td {
+  font-size: 20px;
+  padding: 10px 14px;
+  cursor: pointer;
+  text-align: center; }
+  td:hover {
+    box-shadow: inset 0px 0px 6px 0px; }
+
+#btn-setting {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: solid 1px gray;
+  user-select: none;
+  position: absolute;
+  bottom: 0px;
+  right: 0px; }
+
+/*# sourceMappingURL=popup.css.map */

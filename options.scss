@@ -1,0 +1,53 @@
+.btn-color {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+
+    &-input {
+        opacity: 0;
+    }
+
+    &-span {
+        display: inline-block;
+        border: solid 1px black;
+
+        &:active {
+            box-shadow: inset 0px 0px 13px 4px rgba(0, 0, 0, 0.29)
+        }
+    }
+}
+
+td {
+    font-size: 20px;
+    padding: 10px 14px;
+    cursor: pointer;
+    text-align: center;
+
+    &:hover {
+        box-shadow: inset 0px 0px 6px 0px;
+    }
+}
+
+.nav {
+    margin-bottom: 16px !important;
+}
+
+.title {
+    font-size: 18px;
+    text-decoration: underline;
+}
+
+#design-preview {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border: solid 1px black;
+}
+
+/*#btn-cleanListner {
+	box-shadow: inset 0px 0px 5px 17px rgb(239, 0, 0);
+}*/

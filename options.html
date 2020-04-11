@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="options.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" href="options.html">Paramètres</a>
+    </li>
+</ul>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <p class="title">Apparence :</p>
+            <div class="d-flex">
+          <span>
+            <p class="mr-3">Couleur de Fond :</p>
+          </span>
+                <span class="btn-color btn-color-span" id="btn-bg-color-span">
+            <input class="btn-color btn-color-input" id="btn-bg-color-input" type="color">
+          </span>
+            </div>
+            <div class="d-flex">
+          <span>
+            <p class="mr-3">Couleur du Text :</p>
+          </span>
+                <span class="btn-color btn-color-span" id="btn-text-color-span">
+            <input class="btn-color btn-color-input" id="btn-text-color-input" type="color">
+          </span>
+            </div>
+            <div>
+                <button id="reset">Reset all Setting</button>
+            </div>
+        </div>
+        <div class="col-6">
+            <div id="design-preview">
+                <p>Exemple</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <hr>
+    <div>
+        <button class="btn btn-danger" id="btn-delete">Delete</button>
+        <button class="btn d-none btn-success" id="btn-cleanListner">Terminer la Suppression</button>
+        <input id="input-text-add" maxlength="1" type="text">
+        <button class="btn btn-dark" id="btn-add">Ajouter</button>
+    </div>
+    <div class="row">
+        <table id="letter-box"></table>
+    </div>
+</div>
+
+</div>
+</body>
+<script src="options.js"></script>
+
+</html>

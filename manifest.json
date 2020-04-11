@@ -1,0 +1,43 @@
+{
+	"manifest_version": 2,
+
+	"name": "Test",  // Nom
+	"version": "1.0",  // Version
+	"description": "Test", // Description
+	"options_ui": {
+		"page": "options.html",
+		"open_in_tab": true
+	},
+	"permissions": [
+		"storage",
+		// "declarativeContent",
+		"activeTab"
+	],
+	"background": {
+		"scripts": ["background.js"]
+	},
+	"browser_action": {
+		"default_popup": "popup.html",
+		"default_icon": {
+			"16": "images/get_started16.png",
+			"32": "images/get_started32.png",
+			"48": "images/get_started48.png",
+			"128": "images/get_started128.png"
+		}
+	},
+	"icons": {
+		"16": "images/get_started16.png",
+		"32": "images/get_started32.png",
+		"48": "images/get_started48.png",
+		"128": "images/get_started128.png"
+	}
+
+
+	// "browser_action": {
+	// 	"default_title": "letter",      // optional; shown in tooltip
+	// 	"default_popup": "popup.html" ,
+
+	// }
+
+}
+
