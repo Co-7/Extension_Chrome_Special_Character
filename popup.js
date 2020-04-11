@@ -11,16 +11,16 @@ document.querySelector('#btn-setting').addEventListener('click', function () {
     }
 });
 
-for (var i = 0; i < letter.length; i++) {
-    letter[i].addEventListener('click', function () {
-        var textarea = document.createElement("textarea");
-        textarea.value = this.textContent;
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand("copy")
-        document.body.removeChild(textarea);
-    });
-}
+// for (var i = 0; i < letter.length; i++) {
+//     letter[i].addEventListener('click', function () {
+//         var textarea = document.createElement("textarea");
+//         textarea.value = this.textContent;
+//         document.body.appendChild(textarea);
+//         textarea.select();
+//         document.execCommand("copy")
+//         document.body.removeChild(textarea);
+//     });
+// }
 
 let letterBox = document.querySelector('#letter-box');
 
@@ -33,6 +33,7 @@ function makeArray() {
     let j = 0;
     let y = 0;
     for (let letter of arrayLetter) {
+
         if (j === 4) {
             y++;
             j = 0;
@@ -40,9 +41,18 @@ function makeArray() {
         j++;
         let tr = document.querySelectorAll('tr')[y];
         let td = document.createElement('td');
+        td.addEventListener('click', function () {
+            let textarea = document.createElement("textarea");
+            textarea.value = this.textContent;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy")
+            document.body.removeChild(textarea);
+        });
         td.textContent = letter;
         tr.appendChild(td);
     }
+
 }
 
 
