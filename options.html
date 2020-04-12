@@ -32,9 +32,6 @@
             <input class="btn-color btn-color-input" id="btn-text-color-input" type="color">
           </span>
             </div>
-            <div>
-                <button id="reset">Reset all Setting</button>
-            </div>
         </div>
         <div class="col-6">
             <div id="design-preview">
@@ -44,19 +41,35 @@
     </div>
     <hr>
     <hr>
-    <div>
-        <button class="btn btn-danger" id="btn-delete">Delete</button>
-        <button class="btn d-none btn-success" id="btn-cleanListner">Terminer la Suppression</button>
-        <input id="input-text-add" maxlength="1" type="text">
-        <button class="btn btn-dark" id="btn-add">Ajouter</button>
+    <div class="row">
+        <div class="col-12">
+            <div class="input-group">
+                <button class="btn btn-danger" id="btn-delete">Delete</button>
+                <button class="btn d-none btn-success" id="btn-stop-delete">Terminer et Sauvegarder la Suppression
+                </button>
+                <div class="input-group-prepend">
+                    <button class="btn btn-dark" id="btn-add" type="button">Ajouter</button>
+                </div>
+                <input type="text" class="form-control" id="input-text-add" maxlength="1" placeholder="Exemple : æ">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <table id="letter-box"></table>
+        </div>
     </div>
     <div class="row">
-        <table id="letter-box"></table>
+        <div class="col-12">
+            <button class="btn btn-danger" id="reset">Reset all Setting</button>
+        </div>
     </div>
 </div>
 
 </div>
 </body>
+<script src="global.js"></script>
 <script src="options.js"></script>
 
 </html>
