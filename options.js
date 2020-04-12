@@ -31,7 +31,7 @@ btnTextColorInput.addEventListener('change', function () {
 
 reset.addEventListener('click', function () {
 
-    let result = confirm("Attention tous les parametres vont être reinitialisé ! Etes vous certains ?");
+    let result = confirm("Attention tous les parametres y compris les caractères ajouter vont être supprimer et reinitialisé à l'etat d'origine ! Etes vous certains ?");
 
     if (result) {
         chrome.storage.sync.clear();
@@ -110,7 +110,6 @@ btnAdd.addEventListener('click', function () {
 
     }
 });
-
 
 btnStopDelete.addEventListener('click', function () {
     let newArray = [];

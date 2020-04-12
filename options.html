@@ -9,67 +9,100 @@
 <body>
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link active" href="options.html">Paramètres</a>
+        <a id="tab-setting" class="nav-link active" href="#">Paramètres</a>
+    </li>
+    <li class="nav-item">
+        <a id="tab-character" class="nav-link" href="#">Caractères</a>
+    </li>
+    <li class="nav-item">
+        <a id="tab-doc" class="nav-link" href="#">Documentation</a>
     </li>
 </ul>
+
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-6">
-            <p class="title">Apparence :</p>
-            <div class="d-flex">
+    <div id="content-tab-setting">
+        <div class="row mb-4">
+            <div class="col-6">
+                <p class="title">Apparence :</p>
+                <div class="d-flex">
           <span>
             <p class="mr-3">Couleur de Fond :</p>
           </span>
-                <span class="btn-color btn-color-span" id="btn-bg-color-span">
+                    <span class="btn-color btn-color-span" id="btn-bg-color-span">
             <input class="btn-color btn-color-input" id="btn-bg-color-input" type="color">
           </span>
-            </div>
-            <div class="d-flex">
+                </div>
+                <div class="d-flex">
           <span>
             <p class="mr-3">Couleur du Text :</p>
           </span>
-                <span class="btn-color btn-color-span" id="btn-text-color-span">
+                    <span class="btn-color btn-color-span" id="btn-text-color-span">
             <input class="btn-color btn-color-input" id="btn-text-color-input" type="color">
           </span>
-            </div>
-        </div>
-        <div class="col-6">
-            <div id="design-preview">
-                <p>Exemple</p>
-            </div>
-        </div>
-    </div>
-    <hr>
-    <hr>
-    <div class="row">
-        <div class="col-12">
-            <div class="input-group">
-                <button class="btn btn-danger" id="btn-delete">Delete</button>
-                <button class="btn d-none btn-success" id="btn-stop-delete">Terminer et Sauvegarder la Suppression
-                </button>
-                <div class="input-group-prepend">
-                    <button class="btn btn-dark" id="btn-add" type="button">Ajouter</button>
                 </div>
-                <input type="text" class="form-control" id="input-text-add" maxlength="1" placeholder="Exemple : æ">
+            </div>
+            <div class="col-6">
+                <div id="design-preview">
+                    <p>Exemple</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-danger" id="reset">Reset all Setting</button>
             </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-12">
-            <table id="letter-box"></table>
+    <div class="d-none" id="content-tab-character">
+        <div class="row">
+            <div class="col-12">
+                <div class="input-group">
+                    <button class="btn btn-danger" id="btn-delete">Delete</button>
+                    <button class="btn d-none btn-success" id="btn-stop-delete">Terminer et Sauvegarder la Suppression
+                    </button>
+                    <div class="input-group-prepend">
+                        <button class="btn btn-dark" id="btn-add" type="button">Ajouter</button>
+                    </div>
+                    <input type="text" class="form-control" id="input-text-add" maxlength="1" placeholder="Exemple : æ">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table id="letter-box"></table>
+            </div>
+
         </div>
     </div>
-    <div class="row">
+
+    <div class="d-none" id="content-tab-doc">
         <div class="col-12">
-            <button class="btn btn-danger" id="reset">Reset all Setting</button>
+            <div class="mb-3">
+                <button class="btn btn-danger">Delete</button>
+                <p class="d-inline">-> Permet de Supprimer des caractères.</p>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-success">Terminer et Sauvegarder la Suppression</button>
+                <p class="d-inline">-> Permet d'enregistrer la suppression des caractères.</p>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-dark" type="button">Ajouter</button>
+                <p class="d-inline">-> Permet d'ajouter le caractère mit dans le champ texte à coté.</p>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-danger">Reset all Setting</button>
+                <p class="d-inline">-> Permet de renitialiser l'extension comme à son installation.</p>
+            </div>
         </div>
     </div>
+
 </div>
 
 </div>
 </body>
 <script src="global.js"></script>
 <script src="options.js"></script>
+<script src="tabs.js"></script>
 
 </html>
