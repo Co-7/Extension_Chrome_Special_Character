@@ -74,7 +74,7 @@ function storageGet() {
     chrome.storage.sync.get(null, function (result) {
         setValueVariable(result);
         updateStyleHtmlOption();
-        makeArray();
+        makeArray(arraySelect);
     });
 
 }

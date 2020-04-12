@@ -2,7 +2,7 @@
 let valueBgColor;
 let valueTextColor;
 let letterBox = document.querySelector('#letter-box');
-let arrayLetter = [];
+let arrayAlphabet = [];
 let arrayGreekCharacters = [];
 let arrayCyrillicCharacters = [];
 let arrayHebrewCharacters = [];
@@ -16,7 +16,7 @@ let arrayMathCharacters = [];
 //Variable Default Value
 let valueBgColorDefault = "#4b4b4b";
 let valueTextColorDefault = "#ffffff";
-let arrayLetterDefault = ["À", "Á", "Â", "Ã", "Ä", "Å", "Æ", "Ç", "È", "É", "Ê", "Ë", "Ì", "Í", "Î", "Ï", "Ð", "Ñ", "Ò", "Ó", "Ô", "Õ", "Ö", "Ø", "Œ", "Š", "þ", "Ù", "Ú", "Û", "Ü", "Ý", "Ÿ"];
+let arrayAlphabetDefault = ["À", "Á", "Â", "Ã", "Ä", "Å", "Æ", "Ç", "È", "É", "Ê", "Ë", "Ì", "Í", "Î", "Ï", "Ð", "Ñ", "Ò", "Ó", "Ô", "Õ", "Ö", "Ø", "Œ", "Š", "þ", "Ù", "Ú", "Û", "Ü", "Ý", "Ÿ"];
 let arrayGreekCharactersDefault = ["α", "Α", "β", "Β", "γ", "Γ", "ε", "ϵ", "θ", "ϑ", "κ", "ϰ", "π", "ϖ", "ρ", "ϱ", "σ", "ς", "ϕ", "φ", "ω", "Ω", "℧", "ϝ", "Ϝ"];
 let arrayCyrillicCharactersDefault = ["Ѐ", "Ё", "Ђ", "Ѓ", "Є", "Ѕ", "І", "Ї", "Ј", "Љ", "Њ"];
 let arrayPhoneticCharactersDefault = ["ɐ", "ɑ", "ɒ", "ɓ", "ɔ", "ɕ", "ɖ", "ɗ", "ɘ", "ə", "ɚ"];
@@ -25,6 +25,7 @@ let arrayOghamCharactersDefault = [" ", "ᚁ", "ᚂ", "ᚃ", "ᚄ", "ᚅ", "�
 let arrayRunesCharactersDefault = ["ᚠ", "ᚡ", "ᚢ", "ᚣ", "ᚤ", "ᚥ", "ᚦ", "ᚧ", "ᚨ", "ᚩ", "ᚪ", "ᚫ"];
 let arrayThaiCharactersDefault = ["ก", "ข", "ฃ", "ค", "ฅ", "ฆ", "ง", "จ", "ฉ", "ช"];
 let arrayMathCharactersDefault = ["¼", "½", "¾", "↉", "⅓", "⅔", "⅕", "⅖", "⅗", "⅘", "⅙", "⅚", "⅛", "⅜", "⅝", "⅞", "⅟", "⅐", "⅑", "⅒", "Ⅰ", "Ⅱ", "Ⅲ", "Ⅳ", "Ⅴ", "Ⅵ", "Ⅶ", "Ⅷ", "Ⅸ", "Ⅹ", "Ⅺ", "Ⅻ", "Ⅼ", "Ⅽ", "Ⅾ", "Ⅿ", "ↀ", "ↁ", "ↂ", "Ↄ", "ↇ", "ↈ", "ⅰ", "ⅱ", "ⅲ", "ⅳ", "ⅴ", "ⅵ", "ⅶ", "ⅷ", "ⅸ", "ⅹ", "ⅺ", "ⅻ", "ⅼ", "ⅽ", "ⅾ", "ⅿ", "ↄ", "ℂ", "ℍ", "ℕ", "ℙ", "ℚ", "ℝ", "ℤ", "∅"];
+let arraySelect = arrayAlphabetDefault;
 
 //Function For Clear Array in HTML
 function clearArray() {
@@ -34,15 +35,15 @@ function clearArray() {
     }
 }
 
-function makeArray() {
-    let nb = Math.ceil(arrayLetter.length) / numberLetterByLine;
+function makeArray(array) {
+    let nb = Math.ceil(array.length) / numberLetterByLine;
     for (let i = nb; i > 0; i--) {
         let tr = document.createElement('tr');
         letterBox.appendChild(tr);
     }
     let j = 0;
     let y = 0;
-    for (let letter of arrayLetter) {
+    for (let letter of array) {
 
         if (j === numberLetterByLine) {
             y++;
@@ -67,5 +68,5 @@ function makeArray() {
 function setValueVariable(result) {
     valueBgColor = result.storageBgColor === undefined ? valueBgColorDefault : result.storageBgColor;
     valueTextColor = result.storageTextColor === undefined ? valueTextColorDefault : result.storageTextColor;
-    arrayLetter = result.storageLetter === undefined || result.storageLetter.length === 0 ? arrayLetterDefault : result.storageLetter;
+    arrayAlphabet = result.storageLetter === undefined || result.storageLetter.length === 0 ? arrayAlphabetDefault : result.storageLetter;
 }

@@ -54,10 +54,10 @@
         </div>
     </div>
 
-
-
     <div class="d-none" id="content-tab-character">
-        <div class="row">
+
+        <!--        Menu pour supprimer et ajouter-->
+        <div class="row mb-5">
             <div class="col-12">
                 <div class="input-group">
                     <button class="btn btn-danger" id="btn-delete">Delete</button>
@@ -70,16 +70,24 @@
                 </div>
             </div>
         </div>
+
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a id="characters-tab-alphabet" class="nav-link active" href="#">Alphabet</a>
+            </li>
+            <li class="nav-item">
+                <a id="characters-tab-greek" class="nav-link" href="#">Grec</a>
+            </li>
+            <li class="nav-item">
+                <a id="characters-tab-cyrillic" class="nav-link" href="#">Cyrillic</a>
+            </li>
+        </ul>
         <div class="row">
             <div class="col-12">
                 <table id="letter-box"></table>
             </div>
-
         </div>
     </div>
-
-
-
 
     <div class="d-none" id="content-tab-doc">
         <div class="col-12">
@@ -104,10 +112,9 @@
 
 </div>
 
-</div>
 </body>
 <script src="global.js"></script>
 <script src="options.js"></script>
 <script src="tabs.js"></script>
-
+<script src="tabs-characters.js"></script>
 </html>
