@@ -1,4 +1,4 @@
-storageGet()
+storageGet();
 var body = document.querySelector('body');
 var letter = document.getElementsByTagName('td');
 let numberLetterByLine = 8; //Number of Letters displayed per line
