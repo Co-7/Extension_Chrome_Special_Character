@@ -1,9 +1,10 @@
+let body = document.querySelector('body');
+let letter = document.getElementsByTagName('td');
 storageGet();
-var body = document.querySelector('body');
-var letter = document.getElementsByTagName('td');
-let numberLetterByLine = 8; //Number of Letters displayed per line
 
-//ouvrir la page option d'un une onglet chrome
+let numberLetterByLine = 17; //Number of Letters displayed per line
+
+//Ouvrir la page option d'un une onglet chrome
 document.querySelector('#btn-setting').addEventListener('click', function () {
     if (chrome.runtime.openOptionsPage) {
         chrome.runtime.openOptionsPage();
@@ -12,20 +13,29 @@ document.querySelector('#btn-setting').addEventListener('click', function () {
     }
 });
 
+//Update Les couleurs
 function updateStyleHtmlPopup() {
     body.style.backgroundColor = valueBgColor;
     body.style.color = valueTextColor;
+    let a = document.querySelectorAll('a');
+    console.log(a);
+    for (let i of a) {
+        i.style.color = valueTextColor;
+    }
+
 }
 
 function storageGet() {
+    console.log("storageGet() popup");
     clearArray();
     chrome.storage.sync.get(null, function (result) {
         setValueVariable(result);
+        arraySelect = arrayFavorisCharacters;
+        makeArray(arraySelect);
+        tabCharacter();
         updateStyleHtmlPopup();
-        makeArray();
     });
 }
-
 
 
 

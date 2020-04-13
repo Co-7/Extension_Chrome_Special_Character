@@ -1,20 +1,9 @@
 body {
     color: white;
-    //width: 400px;
+    width: 800px;
     //height: 400px;
-    margin-bottom: 42px;
-    border-bottom: black 1px solid;
-}
-
-td {
-    font-size: 16px;
-    padding: 10px 14px;
-    cursor: pointer;
-    text-align: center;
-
-    &:hover {
-        box-shadow: inset 0px 0px 6px 0px;
-    }
+    margin-bottom: 45px;
+    margin-top: 10px;
 }
 
 #btn-setting {
@@ -27,5 +16,9 @@ td {
     position: absolute;
     bottom: 5px;
     right: 5px;
+}
+
+li {
+    font-size: 14px;
 }
 

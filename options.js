@@ -5,12 +5,7 @@ let btnTextColorInput = document.querySelector("#btn-text-color-input");
 let btnTextColorSpan = document.querySelector("#btn-text-color-span");
 let designPreview = document.querySelector("#design-preview");
 let reset = document.querySelector('#reset');
-let btnDelete = document.querySelector('#btn-delete');
-let btnAdd = document.querySelector('#btn-add');
-let inputTextAdd = document.querySelector('#input-text-add');
-let btnStopDelete = document.querySelector('#btn-stop-delete');
-let numberLetterByLine = 10; //Number of Letters displayed per line
-
+let numberLetterByLine = 10; //Nombre de lettre à affiché par ligne
 
 btnBgColorInput.addEventListener('change', function () {
     console.log("Couleur Selectionné : " + btnBgColorInput.value);
@@ -25,7 +20,6 @@ btnTextColorInput.addEventListener('change', function () {
     valueTextColor = btnTextColorInput.value;
     btnTextColorSpan.style.backgroundColor = valueTextColor;
     designPreview.style.color = valueTextColor;
-
     storageSetTextColor();
 });
 
@@ -36,6 +30,7 @@ reset.addEventListener('click', function () {
     if (result) {
         chrome.storage.sync.clear();
         console.log("Storage clear");
+        arrayFavorisCharacters = [];
         clearArray();
         storageGet();
     }
@@ -53,13 +48,6 @@ function storageSetTextColor() {
     });
 }
 
-function storageSetArrayLetter() {
-    chrome.storage.sync.set({storageLetter: arrayLetter}, function () {
-        console.log(arrayLetter);
-    });
-    storageGet();
-}
-
 function updateStyleHtmlOption() {
     btnBgColorInput.value = valueBgColor;
     btnBgColorSpan.style.backgroundColor = valueBgColor;
@@ -70,66 +58,69 @@ function updateStyleHtmlOption() {
 }
 
 function storageGet() {
+    console.log("storageGet() options");
     clearArray();
     chrome.storage.sync.get(null, function (result) {
         setValueVariable(result);
-        updateStyleHtmlOption();
+        arraySelect = arrayFavorisCharacters;
         makeArray(arraySelect);
+        tabCharacter();
+        updateStyleHtmlOption();
     });
-
 }
 
 
-btnDelete.addEventListener('click', function () {
-    let nbTd = document.querySelectorAll("td");
-    btnDelete.classList.add("d-none");
-    btnAdd.classList.add("d-none");
-    inputTextAdd.classList.add("d-none");
-    btnStopDelete.classList.remove("d-none");
-
-    for (let i = 0; i < nbTd.length; i++) {
-        let td = document.querySelectorAll("td")[i];
-        td.addEventListener('click', del)
-    }
-});
-
-btnAdd.addEventListener('click', function () {
-    if (inputTextAdd.value !== "" && inputTextAdd.value !== " " && inputTextAdd.value.length === 1) {
-        let j = false;
-
-        for (let letter of arrayLetter) {
-            j = letter === inputTextAdd.value ? j = true : j;
-        }
-
-        if (j !== true) {
-            arrayLetter.push(inputTextAdd.value);
-            inputTextAdd.value = "";
-            storageSetArrayLetter()
-        }
 
 
-    }
-});
-
-btnStopDelete.addEventListener('click', function () {
-    let newArray = [];
-    let nbTd = document.querySelectorAll("td")
-    btnDelete.classList.remove("d-none");
-    btnAdd.classList.remove("d-none");
-    inputTextAdd.classList.remove("d-none");
-    btnStopDelete.classList.add("d-none");
-
-    for (let i = 0; i < nbTd.length; i++) {
-        let td = document.querySelectorAll("td")[i];
-        td.removeEventListener('click', del);
-        newArray.push(td.innerText);
-    }
-    arrayLetter = newArray;
-    storageSetArrayLetter()
-});
-
-
-function del() {
-    console.log("Letter has been Delete");
-    this.remove();
-}
+// btnDelete.addEventListener('click', function () {
+//     let nbTd = document.querySelectorAll("td");
+//     btnDelete.classList.add("d-none");
+//     btnAdd.classList.add("d-none");
+//     inputTextAdd.classList.add("d-none");
+//     btnStopDelete.classList.remove("d-none");
+//
+//     for (let i = 0; i < nbTd.length; i++) {
+//         let td = document.querySelectorAll("td")[i];
+//         td.addEventListener('click', del)
+//     }
+// });
+//
+// btnAdd.addEventListener('click', function () {
+//     if (inputTextAdd.value !== "" && inputTextAdd.value !== " " && inputTextAdd.value.length === 1) {
+//         let j = false;
+//
+//         for (let letter of arrayLetter) {
+//             j = letter === inputTextAdd.value ? j = true : j;
+//         }
+//
+//         if (j !== true) {
+//             arrayLetter.push(inputTextAdd.value);
+//             inputTextAdd.value = "";
+//             storageSetArrayLetter()
+//         }
+//
+//
+//     }
+// });
+//
+// btnStopDelete.addEventListener('click', function () {
+//     let newArray = [];
+//     let nbTd = document.querySelectorAll("td")
+//     btnDelete.classList.remove("d-none");
+//     btnAdd.classList.remove("d-none");
+//     inputTextAdd.classList.remove("d-none");
+//     btnStopDelete.classList.add("d-none");
+//
+//     for (let i = 0; i < nbTd.length; i++) {
+//         let td = document.querySelectorAll("td")[i];
+//         td.removeEventListener('click', del);
+//         newArray.push(td.innerText);
+//     }
+//     arrayLetter = newArray;
+//     storageSetArrayLetter()
+// });
+//
+// function del() {
+//     console.log("Letter has been Delete");
+//     this.remove();
+// }

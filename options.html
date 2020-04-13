@@ -3,10 +3,12 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="options.css">
+    <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
+
 <ul class="nav nav-tabs">
     <li class="nav-item">
         <a id="tab-setting" class="nav-link active" href="#">Paramètres</a>
@@ -20,7 +22,7 @@
 </ul>
 
 <div class="container-fluid">
-    <div id="content-tab-setting">
+    <div class="" id="content-tab-setting">
         <div class="row mb-4">
             <div class="col-6">
                 <p class="title">Apparence :</p>
@@ -56,24 +58,10 @@
 
     <div class="d-none" id="content-tab-character">
 
-        <!--        Menu pour supprimer et ajouter-->
-        <div class="row mb-5">
-            <div class="col-12">
-                <div class="input-group">
-                    <button class="btn btn-danger" id="btn-delete">Delete</button>
-                    <button class="btn d-none btn-success" id="btn-stop-delete">Terminer et Sauvegarder la Suppression
-                    </button>
-                    <div class="input-group-prepend">
-                        <button class="btn btn-dark" id="btn-add" type="button">Ajouter</button>
-                    </div>
-                    <input type="text" class="form-control" id="input-text-add" maxlength="1" placeholder="Exemple : æ">
-                </div>
-            </div>
-        </div>
-
         <!--        Navbar for Characters create with for in tabs-characters.js-->
-        <ul id="navbar-tab-character" class="nav nav-tabs">
+        <ul id="characters-list-name" class="nav nav-pills">
         </ul>
+        <hr>
         <div class="row">
             <div class="col-12">
                 <table id="letter-box"></table>
@@ -83,30 +71,34 @@
 
     <div class="d-none" id="content-tab-doc">
         <div class="col-12">
-            <div class="mb-3">
-                <button class="btn btn-danger">Delete</button>
-                <p class="d-inline">-> Permet de Supprimer des caractères.</p>
-            </div>
-            <div class="mb-3">
-                <button class="btn btn-success">Terminer et Sauvegarder la Suppression</button>
-                <p class="d-inline">-> Permet d'enregistrer la suppression des caractères.</p>
-            </div>
-            <div class="mb-3">
-                <button class="btn btn-dark" type="button">Ajouter</button>
-                <p class="d-inline">-> Permet d'ajouter le caractère mit dans le champ texte à coté.</p>
-            </div>
+<!--            <div class="mb-3">-->
+<!--                <button class="btn btn-danger">Delete</button>-->
+<!--                <p class="d-inline">-> Permet de Supprimer des caractères.</p>-->
+<!--            </div>-->
+<!--            <div class="mb-3">-->
+<!--                <button class="btn btn-success">Terminer et Sauvegarder la Suppression</button>-->
+<!--                <p class="d-inline">-> Permet d'enregistrer la suppression des caractères.</p>-->
+<!--            </div>-->
+<!--            <div class="mb-3">-->
+<!--                <button class="btn btn-dark" type="button">Ajouter</button>-->
+<!--                <p class="d-inline">-> Permet d'ajouter le caractère mit dans le champ texte à coté.</p>-->
+<!--            </div>-->
             <div class="mb-3">
                 <button class="btn btn-danger">Reset all Setting</button>
-                <p class="d-inline">-> Permet de renitialiser l'extension comme à son installation.</p>
+                <p class="d-inline">-> Permet de reinitialiser l'extension comme à son installation.</p>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-info">Source : Wikipédia</button>
+                <p class="d-inline"></p>
             </div>
         </div>
     </div>
 
 </div>
 
+
 </body>
 <script src="global.js"></script>
 <script src="options.js"></script>
 <script src="tabs.js"></script>
-<script src="tabs-characters.js"></script>
 </html>
