@@ -52,6 +52,10 @@ function changeTabCharacters() {
             removeActiveCharactersTab();
             tabCharacter.classList.add("active");
             arraySelect = j === 0 ? arrayFavorisCharacters : arrayArrayCharacters[j];
+            let p = document.createElement("p");
+            p.innerText = "Ajouter un Favoris en Double Cliquant sur un Caractere et Idem pour pouvoir le Supprimer des Favoris";
+            p.style.fontStyle = "italic";
+            p.style.opacity = "0.5";
             clearArray();
             makeArray(arraySelect);
         });
@@ -66,19 +70,19 @@ function removeActiveCharactersTab() {
     }
 }
 
-function favorisEmpty() {
-
-    if (arrayFavorisCharacters.length === 0) {
-        console.log("empty");
-    } else {
-        console.log("noempty");
-    }
-}
-
 function tabCharacter() {
     createNavTabCharacter();
     changeTabCharacters();
-    favorisEmpty();
+}
+
+function clearTabCharacters() {
+    console.log("clearTabCharacters()");
+    let ul = document.querySelector("#characters-list-name");
+    let li = ul.querySelectorAll('li');
+    for (let i = 0; i < li.length; i++) {
+        ul.removeChild(li[i]);
+    }
+
 }
 
 function clearArray() {
@@ -135,7 +139,7 @@ function makeArray(array) {
                 if (j !== true) {
                     console.log("Ajouts du Caractere au Favoris");
                     arrayFavorisCharacters.push(td.innerText);
-                    storageSetArrayLetter()
+                    storageSetArrayLetter();
                 } else console.log("Deja en Favoris");
             });
         } else {
@@ -149,7 +153,6 @@ function makeArray(array) {
                 }
                 arrayFavorisCharacters = tempArray;
                 storageSetArrayLetter();
-                favorisEmpty();
             });
         }
 
@@ -167,26 +170,5 @@ function setValueVariable(result) {
 
 function storageSetArrayLetter() {
     chrome.storage.sync.set({storageLetter: arrayFavorisCharacters}, function () {
-
     });
 }
-
-// function storageGetArrayFav() {
-//     console.log("storageSetArrayLetter()");
-//
-//     chrome.storage.sync.get(null, function (result) {
-//         arrayFavorisCharacters = result.storageLetter === undefined ? [] : result.storageLetter;
-//
-//     });
-//
-// }
-
-
-//
-// chrome.storage.sync.get(null, function (result) {
-//     setValueVariable(result);
-//     arraySelect = arrayFavorisCharacters;
-//     makeArray(arraySelect);
-//     tabCharacter();
-//     updateStyleHtmlOption();
-// });

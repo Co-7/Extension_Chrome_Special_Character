@@ -32,6 +32,7 @@ reset.addEventListener('click', function () {
         console.log("Storage clear");
         arrayFavorisCharacters = [];
         clearArray();
+        clearTabCharacters()
         storageGet();
     }
 });
