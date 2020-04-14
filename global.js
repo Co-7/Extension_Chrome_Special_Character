@@ -26,35 +26,21 @@ let arrayTabsCharacters = [];
 let arrayArrayCharacters = [];
 
 function createNavTabCharacter() {
-    //balise ul où vont etres mit la liste des onglets
     let ul = document.querySelector("#characters-list-name");
 
-    // Pour toutes les valeurs (nav) dans navTabCharacter
     for (let nav of navTabCharacter) {
-        //Création d'une balise li
         let li = document.createElement("li");
-        //Ajout d'une class à la balise li
         li.classList.add("nav-item");
-        //Ajoute la balise li dans la balise ul
         ul.appendChild(li);
-
-        //Création d'une balise a
         let a = document.createElement("a");
-        //Ajout d'une class à la balise a
         a.classList.add("nav-link");
-        //Ajout d'un text dans la balise a correspondant a une valeur du tableau navTabCharacter
         a.innerText = nav;
-        //Ajout d'un href à la balise a
         a.href = "#";
-        //Ajout d'un id à la balise a
         a.id = "characters-tab-" + nav.toLowerCase();
-        //Ajoute la balise a dans la balise li
         li.appendChild(a);
-
         arrayTabsCharacters.push(window["tabs" + nav + "Characters"] = (document.getElementById(a.id)));
         arrayArrayCharacters.push(window["array" + nav + "Characters"]);
     }
-    //Definit l'onglet Favoris avec la class active
     document.getElementById("characters-tab-favoris").classList.add("active");
 }
 
@@ -65,7 +51,7 @@ function changeTabCharacters() {
         tabCharacter.addEventListener('click', function () {
             removeActiveCharactersTab();
             tabCharacter.classList.add("active");
-            arraySelect = arrayArrayCharacters[j];
+            arraySelect = j === 0 ? arrayFavorisCharacters : arrayArrayCharacters[j];
             clearArray();
             makeArray(arraySelect);
         });
@@ -105,6 +91,7 @@ function clearArray() {
 
 function makeArray(array) {
     console.log("makeArray()");
+    console.log(array);
 
     let nb = Math.ceil(array.length) / numberLetterByLine;
     for (let i = nb; i > 0; i--) {
@@ -115,7 +102,7 @@ function makeArray(array) {
     let y = 0;
     //Verification si l'array affiché est suis des favoris
     let favArray = array === arrayFavorisCharacters;
-    console.log(array);
+    console.log(favArray);
     for (let letter of array) {
 
         if (j === numberLetterByLine) {
@@ -146,9 +133,10 @@ function makeArray(array) {
                 }
 
                 if (j !== true) {
+                    console.log("Ajouts du Caractere au Favoris");
                     arrayFavorisCharacters.push(td.innerText);
                     storageSetArrayLetter()
-                }
+                } else console.log("Deja en Favoris");
             });
         } else {
             td.addEventListener('dblclick', function () {
@@ -156,16 +144,12 @@ function makeArray(array) {
                 let letterBox = document.getElementById("letter-box");
                 td.remove();
                 let allTd = letterBox.querySelectorAll("td");
-                console.log(allTd);
                 for (let x of allTd) {
-                    console.log(x.innerText);
                     tempArray.push(x.innerText);
                 }
-                console.log(tempArray);
                 arrayFavorisCharacters = tempArray;
                 storageSetArrayLetter();
-
-                console.log(arrayFavorisCharacters);
+                favorisEmpty();
             });
         }
 
@@ -182,11 +166,9 @@ function setValueVariable(result) {
 }
 
 function storageSetArrayLetter() {
-    console.log("storageSetArrayLetter()");
     chrome.storage.sync.set({storageLetter: arrayFavorisCharacters}, function () {
 
     });
-    console.log(arrayFavorisCharacters);
 }
 
 // function storageGetArrayFav() {
