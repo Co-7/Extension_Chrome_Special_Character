@@ -1,16 +1,16 @@
 {
 	"manifest_version": 2,
 
-	"name": "Test",  // Nom
-	"version": "1.0",  // Version
-	"description": "Test", // Description
+	"name": "Caractères spéciaux",
+	"version": "1.0",
+	"author": "Co-7",
+	"description": "Une extension pour copié facilement dans le presse-papiers les caractères spéciaux.",
 	"options_ui": {
 		"page": "options.html",
 		"open_in_tab": true
 	},
 	"permissions": [
 		"storage",
-		// "declarativeContent",
 		"activeTab"
 	],
 	"background": {
@@ -19,25 +19,17 @@
 	"browser_action": {
 		"default_popup": "popup.html",
 		"default_icon": {
-			"16": "images/get_started16.png",
-			"32": "images/get_started32.png",
-			"48": "images/get_started48.png",
-			"128": "images/get_started128.png"
+			"16": "images/icon16.png",
+			"32": "images/icon32.png",
+			"48": "images/icon48.png",
+			"128": "images/icon128.png"
 		}
 	},
 	"icons": {
-		"16": "images/get_started16.png",
-		"32": "images/get_started32.png",
-		"48": "images/get_started48.png",
-		"128": "images/get_started128.png"
+		"16": "images/icon16.png",
+		"32": "images/icon32.png",
+		"48": "images/icon48.png",
+		"128": "images/icon128.png"
 	}
-
-
-	// "browser_action": {
-	// 	"default_title": "letter",      // optional; shown in tooltip
-	// 	"default_popup": "popup.html" ,
-
-	// }
-
 }
 
